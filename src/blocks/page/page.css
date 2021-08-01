@@ -9,3 +9,9 @@
   margin: 0;
   padding: 0;
 }
+@media (max-width: 940px){
+  .page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

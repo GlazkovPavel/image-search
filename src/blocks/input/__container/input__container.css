@@ -1,3 +1,9 @@
 .input__container{
-  width: 790px;
+  width: 80%;
+  border: 1px solid #000;
+  border-radius: 4px;
+  height: 30px;
+  padding: 0 20px;
+  margin: 0 auto;
+  outline: none;
 }
