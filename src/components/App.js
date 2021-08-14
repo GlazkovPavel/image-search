@@ -1,9 +1,10 @@
 import React from "react";
 import api from "../utils/api";
-import SearchBar from "./SearchBar";
-import Card from "./Card";
 import Footer from "./Footer";
 import Header from "./Header";
+import Main from "./Main";
+import {Route} from "react-router-dom";
+import Photo from "./Photo";
 
 
 function App() {
@@ -38,17 +39,16 @@ function App() {
   return (
       <div className="page">
         <Header />
-        <SearchBar query={query} setQuery={setQuery} onSearch={onSearch} handleSubmit={handleSubmit} />
-        <ul className="card">
-          {data?.results.map((card) => (
-              <Card
-                  key={card.id}
-                  imgSrc={card.urls.regular}
-                  title={`${card.user.name}: ${card.description}`}
-                  alt={card.description}
-              />
-          ))}
-        </ul>
+        <Route path="/" exact>
+          <Main data={data}
+                handleSubmit={handleSubmit}
+                setQuery={setQuery}
+                onSearch={onSearch}
+                query={query}/>
+        </Route>
+        <Route path="/photos/:id" exact>
+          <Photo photos={data} />
+        </Route>
 
         <ul>
           {!!data &&

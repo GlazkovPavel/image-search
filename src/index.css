@@ -10,3 +10,9 @@
 @import url(./blocks/input/input.css);
 @import url(./blocks/input/__container/input__container.css);
 @import url(./blocks/button/button.css);
+@import url(./blocks/photo/__goback/photo__goback.css);
+@import url(./blocks/photo/photo.css);
+@import url(./blocks/photo/__image/photo__image.css);
+@import url(./blocks/photo/__note/photo__note.css);
+@import url(./blocks/photo/__subtitle/photo__subtitle.css);
+@import url(./blocks/photo/__title/photo__title.css);
