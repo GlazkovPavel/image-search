@@ -11,6 +11,11 @@ function App() {
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch();
+  }
+
   const onSearch = () => {
     setPage(1);
 
@@ -33,7 +38,7 @@ function App() {
   return (
       <div className="page">
         <Header />
-        <SearchBar query={query} setQuery={setQuery} onSearch={onSearch} />
+        <SearchBar query={query} setQuery={setQuery} onSearch={onSearch} handleSubmit={handleSubmit} />
         <ul className="card">
           {data?.results.map((card) => (
               <Card

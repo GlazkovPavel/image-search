@@ -4,7 +4,7 @@ import Input from "../components/Input";
 
 function SearchBar(props){
   return(
-      <div className="input">
+      <form className="input" onSubmit={props.handleSubmit}>
         <Input
             value={props.query}
             onChange={(e) => {
@@ -16,7 +16,7 @@ function SearchBar(props){
             onSearch={props.onSearch}
         />
 
-      </div>
+      </form>
   )
 }
 export default SearchBar;
