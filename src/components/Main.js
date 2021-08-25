@@ -7,7 +7,7 @@ function Main({query, handleSubmit, data, setQuery, onSearch}) {
   <div>
     <SearchBar query={query} setQuery={setQuery} onSearch={onSearch} handleSubmit={handleSubmit} />
     <ul className="card">
-      {data?.results.map((card) => (
+      {data?.map((card) => (
           <Card
               key={card.id}
               id={card.id}

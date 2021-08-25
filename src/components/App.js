@@ -11,6 +11,15 @@ function App() {
   const [query, setQuery] = React.useState("");
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState();
+  const [item, setItem] = React.useState();
+
+  React.useEffect(() =>{
+    api.getRandom()
+        .then((data) => {
+          setData(data)
+        })
+        .catch(err => console.error(err))
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +32,8 @@ function App() {
     api
         .search(query)
         .then((data) => {
-          setData(data);
+          setData(data.results);
+          setItem(data);
         })
         .catch(() => {});
   };
@@ -32,7 +42,8 @@ function App() {
     api
         .search(query, page)
         .then((data) => {
-          setData(data);
+          setData(data.results);
+          setItem(data);
         })
         .catch(() => {});
   }, [page]);
@@ -51,8 +62,8 @@ function App() {
         </Route>
 
         <ul>
-          {!!data &&
-          new Array(data.total_pages).fill(null).map((_, index) => (
+          {!!item &&
+          new Array(item.total_pages).fill(null).map((_, index) => (
               <button
                   key={index}
                   className={`pagination__item ${
