@@ -50,14 +50,14 @@ function App() {
   return (
       <div className="page">
         <Header />
-        <Route path="/" exact>
+        <Route path="/image-search/" exact>
           <Main data={data}
                 handleSubmit={handleSubmit}
                 setQuery={setQuery}
                 onSearch={onSearch}
                 query={query}/>
         </Route>
-        <Route path="/photos/:id" exact>
+        <Route path="/image-search/photos/:id" exact>
           <Photo photos={data} />
         </Route>
 

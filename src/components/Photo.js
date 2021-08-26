@@ -17,7 +17,7 @@ function Photo({photos}) {
   console.log(photo)
   return (
       <div className="photo">
-        <Link className="photo__goback" to="/">⟵ Go back</Link>
+        <Link className="photo__goback" to="/image-search/">⟵ Go back</Link>
         {
           photo ?
               <>
