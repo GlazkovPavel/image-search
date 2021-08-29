@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 function Card(props){
   return(
-      <Link to={`image-search/photos/${props.id}`}>
+      <Link to={`/photos/${props.id}`} style={{textDecoration: "none"}}>
         <li style={{listStyle: "none"}}>
           <div className="card__img-wrapper">
             <img className="card__img" src={props.imgSrc} alt={props.alt} />

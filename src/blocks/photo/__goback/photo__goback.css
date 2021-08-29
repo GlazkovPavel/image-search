@@ -1,5 +1,7 @@
-.photo-goback {
-  font-size: 14px;
-  color: grey;
-  text-decoration: underline;
+.photo__goback {
+  font-size: 20px;
+  color: whitesmoke;
+  text-decoration: none;
+  font-weight: 700;
+
 }

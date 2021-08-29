@@ -1,0 +1,12 @@
+.pagination__current-page{
+  border: 3px solid lightgray;
+  border-radius: 50%;
+  padding: 5px 10px;
+  margin: 0 10px;
+  cursor: pointer;
+  width: 30px;
+  text-align: center;
+  color: whitesmoke;
+  font-weight: 700;
+}
+

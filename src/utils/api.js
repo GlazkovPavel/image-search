@@ -12,7 +12,7 @@ class Api {
   }
 
   search(query, page, per_page = 12) {
-    return fetch(`${this._baseUrl}/search/photos?query=${query}&page=${page}&per_page=${per_page}`, {
+    return fetch(`${this._baseUrl}/search/photos?query=${query}&page=${page}&per_page=${per_page}&order_by='popular'`, {
       headers: {
         Authorization: `Client-ID ${this._apiKey}`,
       },

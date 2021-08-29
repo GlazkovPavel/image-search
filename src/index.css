@@ -16,3 +16,6 @@
 @import url(./blocks/photo/__note/photo__note.css);
 @import url(./blocks/photo/__subtitle/photo__subtitle.css);
 @import url(./blocks/photo/__title/photo__title.css);
+@import url(./blocks/pagination/pagination.css);
+@import url(./blocks/pagination/__current-page/pagination__current-page.css);
+@import url(./blocks/pagination/__page/pagination__page.css);

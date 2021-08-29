@@ -5,13 +5,15 @@ import Header from "./Header";
 import Main from "./Main";
 import {Route} from "react-router-dom";
 import Photo from "./Photo";
-
+import {createPages} from "../utils/pagesCreator";
 
 function App() {
   const [query, setQuery] = React.useState("");
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState();
   const [item, setItem] = React.useState();
+  const [pagesCount, setPagesCount] = React.useState()
+  const pages = [];
 
   React.useEffect(() =>{
     api.getRandom()
@@ -34,6 +36,7 @@ function App() {
         .then((data) => {
           setData(data.results);
           setItem(data);
+          setPagesCount(data.total_pages)
         })
         .catch(() => {});
   };
@@ -44,39 +47,37 @@ function App() {
         .then((data) => {
           setData(data.results);
           setItem(data);
+          setPagesCount(data.total_pages)
+
         })
         .catch(() => {});
   }, [page]);
+
+
+
+  createPages(pages, pagesCount, page);
+
+
   return (
       <div className="page">
         <Header />
-        <Route path="image-search/" exact>
+        <Route path="/" exact>
           <Main data={data}
                 handleSubmit={handleSubmit}
                 setQuery={setQuery}
                 onSearch={onSearch}
                 query={query}/>
         </Route>
-        <Route path="image-search/photos/:id" exact>
-          <Photo photos={data} />
+        <Route path="/photos/:id" exact>
+          <Photo photos={item} />
         </Route>
 
-        <ul>
-          {!!item &&
-          new Array(item.total_pages).fill(null).map((_, index) => (
-              <button
-                  key={index}
-                  className={`pagination__item ${
-                      index + 1 === page ? "active" : ""
-                  }`}
-                  onClick={() => {
-                    setPage(index + 1);
-                  }}
-              >
-                {index + 1}
-              </button>
-          ))}
-        </ul>
+        <div className="pagination">
+          {pages.map((pageId, index) => <span
+              key={index}
+              className={page === pageId ? "pagination__current-page" : "pagination__page"}
+              onClick={() => setPage(pageId)}>{pageId}</span>)}
+        </div>
         <Footer />
       </div>
   );
