@@ -19,3 +19,7 @@
 @import url(./blocks/pagination/pagination.css);
 @import url(./blocks/pagination/__current-page/pagination__current-page.css);
 @import url(./blocks/pagination/__page/pagination__page.css);
+
+body{
+  background-color: rgb(48, 45, 32);
+}

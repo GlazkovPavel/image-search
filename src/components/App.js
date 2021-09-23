@@ -6,6 +6,7 @@ import Main from "./Main";
 import {Route} from "react-router-dom";
 import Photo from "./Photo";
 import {createPages} from "../utils/pagesCreator";
+import {Pagination} from "./Pagination";
 
 function App() {
   const [query, setQuery] = React.useState("");
@@ -67,17 +68,17 @@ function App() {
                 setQuery={setQuery}
                 onSearch={onSearch}
                 query={query}/>
+          < Pagination
+              pages = {pages}
+              page = {page}
+              setPage = {setPage}
+          />
+
         </Route>
         <Route path="/photos/:id" exact>
           <Photo photos={item} />
         </Route>
 
-        <div className="pagination">
-          {pages.map((pageId, index) => <span
-              key={index}
-              className={page === pageId ? "pagination__current-page" : "pagination__page"}
-              onClick={() => setPage(pageId)}>{pageId}</span>)}
-        </div>
         <Footer />
       </div>
   );

@@ -1,4 +1,4 @@
-import logo from "../image/mesto.svg"
+import logo from "../image/header_black_theme.png"
 
 function Header(){
   return(
