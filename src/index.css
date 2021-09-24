@@ -19,7 +19,11 @@
 @import url(./blocks/pagination/pagination.css);
 @import url(./blocks/pagination/__current-page/pagination__current-page.css);
 @import url(./blocks/pagination/__page/pagination__page.css);
-
+@import url(./blocks/not-found/not-found.css);
+@import url(./blocks/not-found/__button/not-found__button.css);
+@import url(./blocks/not-found/__image/not-found__image.css);
+@import url(./blocks/not-found/__text/not-found__text.css);
+@import url(./blocks/not-found/__title/not-found__title.css);
 body{
   background-color: rgb(48, 45, 32);
 }

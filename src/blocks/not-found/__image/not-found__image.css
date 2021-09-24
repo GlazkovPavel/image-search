@@ -1,0 +1,24 @@
+.not-found__image {
+  width: 600px;
+}
+
+@media screen and (max-width: 879px) {
+  .not-found__image {
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .not-found__image {
+    max-width: 400px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .not-found__image {
+    max-width: 300px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .not-found__image {
+    max-width: 200px;
+  }
+}

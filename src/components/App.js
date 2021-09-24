@@ -3,10 +3,11 @@ import api from "../utils/api";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import Photo from "./Photo";
 import {createPages} from "../utils/pagesCreator";
 import {Pagination} from "./Pagination";
+import {PageNotFound} from "./PageNotFound";
 
 function App() {
   const [query, setQuery] = React.useState("");
@@ -59,6 +60,7 @@ function App() {
   return (
       <div className="page">
         <Header />
+        <Switch>
         <Route path="/" exact>
           <Main data={data}
                 handleSubmit={handleSubmit}
@@ -75,7 +77,10 @@ function App() {
         <Route path="/photos/:id" exact>
           <Photo  />
         </Route>
-
+        <Route path="*">
+          <PageNotFound />
+        </Route>
+        </Switch>
         <Footer />
       </div>
   );
