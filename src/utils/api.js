@@ -27,6 +27,14 @@ class Api {
     }).then(this._getResponse);
   }
 
+  getPhotoId(id){
+    return fetch(`${this._baseUrl}/photos/${id}`, {
+      headers: {
+        Authorization: `Client-ID ${this._apiKey}`,
+      }
+    }).then(this._getResponse);
+  }
+
 }
 
 const api = new Api({

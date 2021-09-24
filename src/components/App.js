@@ -12,7 +12,6 @@ function App() {
   const [query, setQuery] = React.useState("");
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState();
-  const [item, setItem] = React.useState();
   const [pagesCount, setPagesCount] = React.useState()
   const pages = [];
 
@@ -36,7 +35,6 @@ function App() {
         .search(query)
         .then((data) => {
           setData(data.results);
-          setItem(data);
           setPagesCount(data.total_pages)
         })
         .catch(() => {});
@@ -47,7 +45,6 @@ function App() {
         .search(query, page)
         .then((data) => {
           setData(data.results);
-          setItem(data);
           setPagesCount(data.total_pages)
 
         })
@@ -76,7 +73,7 @@ function App() {
 
         </Route>
         <Route path="/photos/:id" exact>
-          <Photo photos={item} />
+          <Photo  />
         </Route>
 
         <Footer />

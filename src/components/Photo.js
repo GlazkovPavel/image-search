@@ -1,20 +1,20 @@
 import React from "react";
-import {Link, useParams, useRouteMatch} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
+import api from "../utils/api";
 
+function Photo() {
 
-function Photo({photos}) {
-  console.log(photos);
   const params  = useParams()
-  const getPhotoById = (photos, id) => photos.results.find(photo => photo.id === id);
-  console.log(getPhotoById);
-  console.log(params.id)
 
- const match = useRouteMatch();
+  const [photo, setPhoto] = React.useState()
 
-  console.log(match);
+  React.useEffect(() => {
+    api.getPhotoId(params.id)
+        .then((photo) => {
+          setPhoto(photo)
+        })
+  }, [])
 
-  const photo = getPhotoById(photos, params.id);
-  console.log(photo)
   return (
       <div className="photo">
         <Link className="photo__goback" to="/">⟵ Go back</Link>
