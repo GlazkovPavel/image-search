@@ -10,3 +10,10 @@
   font-weight: 700;
 }
 
+@media screen and (max-width: 620px){
+  .pagination__current-page{
+    width: 20px;
+    margin: 0 5px;
+    font-weight: 400;
+  }
+}

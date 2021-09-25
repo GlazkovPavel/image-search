@@ -6,3 +6,9 @@
   grid-template-columns: repeat(2, calc(50% - 16px));
   padding: 0;
 }
+
+@media screen and (max-width: 420px){
+  .card{
+    grid-template-columns: repeat(1, calc(100%));
+  }
+}

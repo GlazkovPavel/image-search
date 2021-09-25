@@ -38,7 +38,7 @@ function App() {
           setData(data.results);
           setPagesCount(data.total_pages)
         })
-        .catch(() => {});
+        .catch((err) => {console.log(err)});
   };
 
   React.useEffect(() => {
@@ -49,13 +49,10 @@ function App() {
           setPagesCount(data.total_pages)
 
         })
-        .catch(() => {});
+        .catch((err) => {console.log(err)});
   }, [page]);
 
-
-
   createPages(pages, pagesCount, page);
-
 
   return (
       <div className="page">

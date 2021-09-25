@@ -11,3 +11,16 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+@media screen and (max-width: 620px){
+  .card__description{
+    font-weight: normal;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .card__description {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}

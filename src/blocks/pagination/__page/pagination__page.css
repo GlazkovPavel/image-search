@@ -8,3 +8,20 @@
   text-align: center;
   color: whitesmoke;
 }
+
+@media screen and (max-width: 620px){
+  .pagination__page{
+    width: 20px;
+    margin: 0 5px;
+    font-weight: 400;
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width: 620px){
+  .pagination__page{
+    width: 10px;
+    margin: 0 3px;
+    font-weight: 400;
+  }
+}

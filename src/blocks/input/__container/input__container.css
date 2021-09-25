@@ -6,5 +6,16 @@
   padding: 0 20px;
   margin: 0 10px 0 0;
   outline: none;
+}
 
+@media screen and (max-width: 520px){
+.input__container{
+  height: 26px;
+}
+}
+
+@media screen and (max-width: 420px){
+  .input__container{
+    height: 22px;
+  }
 }
