@@ -74,14 +74,15 @@ function App() {
 
   return (
       <div className="page">
-        <Header />
+        <Header isLoader={loader} />
         <Switch>
         <Route path="/" exact>
           <Main data={data}
                 handleSubmit={handleSubmit}
                 setQuery={setQuery}
                 onSearch={onSearch}
-                query={query}/>
+                query={query}
+                isLoader={loader}/>
           < Pagination
               pages = {pages}
               page = {page}

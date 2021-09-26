@@ -4,7 +4,7 @@ import Input from "../components/Input";
 
 function SearchBar(props){
   return(
-      <form className="input" onSubmit={props.handleSubmit}>
+      <form className={`input ${props.isLoader && 'input__hide'}`} onSubmit={props.handleSubmit}>
         <Input
             value={props.query}
             onChange={(e) => {

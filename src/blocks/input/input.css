@@ -4,3 +4,7 @@
   display: flex;
 
 }
+
+.input__hide{
+  display: none;
+}

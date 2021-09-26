@@ -2,10 +2,11 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import Card from "./Card";
 
-function Main({query, handleSubmit, data, setQuery, onSearch}) {
+function Main({query, handleSubmit, data, setQuery, onSearch, isLoader}) {
   return(
   <div>
-    <SearchBar query={query} setQuery={setQuery} onSearch={onSearch} handleSubmit={handleSubmit} />
+    <SearchBar query={query} setQuery={setQuery} onSearch={onSearch}
+               handleSubmit={handleSubmit} isLoader={isLoader}/>
     <ul className="card">
       {data?.map((card) => (
           <Card
