@@ -1,0 +1,115 @@
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.loader__show{
+  display: block;
+}
+
+.loader__wrapper {
+  width: 490px;
+  margin: auto;
+  min-height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loader__text{
+  color: whitesmoke;
+  text-align: center;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 32px;
+}
+
+.loader__animated {
+  width: 490px;
+  height: 250px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translate(0, 50%);
+
+}
+
+.star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.star_size_s {
+  width: 310px;
+  height: 310px;
+  margin-left: -155px;
+  margin-top: -155px;
+  animation-name: rotation;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+}
+
+.star_size_l {
+  width: 420px;
+  height: 420px;
+  margin-left: -210px;
+  margin-top: -210px;
+  animation-name: rotation;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.star_size_m {
+  width: 420px;
+  height: 420px;
+  margin-left: -210px;
+  margin-top: -210px;
+  animation-name: rotation;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 490px;
+  height: 460px;
+  margin-top: -245px;
+  margin-left: -230px;
+}
+.dots_size_s {
+  animation-name: rotation;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.dots_size_m {
+  animation-name: rotation;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.dots_size_l {
+  animation-name: rotation;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

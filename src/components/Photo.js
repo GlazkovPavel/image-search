@@ -2,16 +2,21 @@ import React from "react";
 import {Link, useParams} from "react-router-dom";
 import api from "../utils/api";
 
-function Photo() {
+function Photo({showLoader}) {
 
   const params  = useParams()
 
   const [photo, setPhoto] = React.useState()
 
   React.useEffect(() => {
+    showLoader(true)
     api.getPhotoId(params.id)
         .then((photo) => {
           setPhoto(photo)
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+          showLoader(false)
         })
   }, [])
 

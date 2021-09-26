@@ -8,20 +8,26 @@ import Photo from "./Photo";
 import {createPages} from "../utils/pagesCreator";
 import {Pagination} from "./Pagination";
 import {PageNotFound} from "./PageNotFound";
+import {Loader} from "./Loader";
 
 function App() {
   const [query, setQuery] = React.useState("");
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState();
-  const [pagesCount, setPagesCount] = React.useState()
+  const [pagesCount, setPagesCount] = React.useState();
+  const [loader, setLoader] = React.useState(false);
   const pages = [];
 
   React.useEffect(() =>{
+    showLoader(true)
     api.getRandom()
         .then((data) => {
           setData(data)
         })
         .catch(err => console.error(err))
+        .finally(() => {
+          showLoader(false);
+        })
   }, [])
 
   const handleSubmit = (e) => {
@@ -31,17 +37,21 @@ function App() {
 
   const onSearch = () => {
     setPage(1);
-
+    showLoader(true)
     api
         .search(query)
         .then((data) => {
           setData(data.results);
           setPagesCount(data.total_pages)
         })
-        .catch((err) => {console.log(err)});
+        .catch((err) => {console.log(err)})
+        .finally(() => {
+          showLoader(false);
+        })
   };
 
   React.useEffect(() => {
+    showLoader(true)
     api
         .search(query, page)
         .then((data) => {
@@ -49,8 +59,16 @@ function App() {
           setPagesCount(data.total_pages)
 
         })
-        .catch((err) => {console.log(err)});
-  }, [page]);
+        .catch((err) => {console.log(err)})
+        .finally(() => {
+          showLoader(false);
+        })
+
+  }, [page])
+
+  function showLoader(item){
+    setLoader(item)
+  }
 
   createPages(pages, pagesCount, page);
 
@@ -69,16 +87,16 @@ function App() {
               page = {page}
               setPage = {setPage}
           />
-
         </Route>
         <Route path="/photos/:id" exact>
-          <Photo  />
+          <Photo showLoader={showLoader} />
         </Route>
         <Route path="*">
           <PageNotFound />
         </Route>
         </Switch>
         <Footer />
+        <Loader isLoader={loader}/>
       </div>
   );
 }

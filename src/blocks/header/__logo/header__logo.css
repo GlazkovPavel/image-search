@@ -8,17 +8,14 @@
   .header__logo {
     max-width: 175px;
   }
-
 }
 @media screen and (max-width: 620px) {
   .header__logo {
     max-width: 150px;
   }
-
 }
 @media screen and (max-width: 520px) {
   .header__logo {
     max-width: 104px;
   }
-
 }
